@@ -1,10 +1,11 @@
-version: '2.24.3'
+version: '3.8'
+
 services:
-  container_name: newspapper
-  build:
-    context:./newspapper_docker
-  command: python manage.py runserver 0.0.0.0:8000
-  volumes:
-    - ./newspapper_docker:/usr/src/app/
-  ports:
-    - 8001:8000
+  web:
+    container_name: newspapper
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8001:8000"
